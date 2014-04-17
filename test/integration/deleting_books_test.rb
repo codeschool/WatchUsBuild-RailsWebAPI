@@ -5,8 +5,9 @@ class DeletingBooksTest < ActionDispatch::IntegrationTest
     @book = Book.create!(title: 'Bananas')
   end
 
-  test 'deletes books' do
+  test 'destroying books does not delete' do
     delete "/books/#{@book.id}"
     assert_equal 204, response.status
+    assert @book.reload
   end
 end

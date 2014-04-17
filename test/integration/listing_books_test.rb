@@ -5,15 +5,17 @@ class ListingBooksTest < ActionDispatch::IntegrationTest
     Book.create!(title: 'Pragmatic Programmer', rating: 5)
     Book.create!(title: 'Pickaxe', rating: 5)
     Book.create!(title: 'ASP.NET for Dummies', rating: 2)
+
+    Book.create!(title: 'Pascal', rating: 2, archived_at: 10.years.ago)
   end
 
-  test 'lists all books' do
+  test 'lists all books not archived' do
     get '/books'
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
 
-    assert_equal Book.count, JSON.parse(response.body).size
+    assert_equal 3, JSON.parse(response.body).size
   end
 
   test 'lists top rated books' do
