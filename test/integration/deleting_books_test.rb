@@ -6,7 +6,7 @@ class DeletingBooksTest < ActionDispatch::IntegrationTest
   end
 
   test 'destroying books does not delete' do
-    delete "/books/#{@book.id}"
+    delete "/api/books/#{@book.id}"
     assert_equal 204, response.status
     assert @book.reload
   end
