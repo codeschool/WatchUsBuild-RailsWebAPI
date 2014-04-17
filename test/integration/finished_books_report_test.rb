@@ -12,7 +12,7 @@ class FinishedBooksReportTest < ActionDispatch::IntegrationTest
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
 
-    books = json(response.body)
+    books = json(response.body)[:finished_books]
     titles = books.map { |b| b[:title] }
 
     assert_includes titles, @finished.title

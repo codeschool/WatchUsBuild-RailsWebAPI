@@ -2,6 +2,7 @@ ReadingListAPI::Application.routes.draw do
 
   namespace :api do
     resources :books
+    resources :genres
     resources :finished_books
   end
 
@@ -9,4 +10,6 @@ ReadingListAPI::Application.routes.draw do
     read_only.resources :authors
     read_only.resources :genres
   end
+
+  root to: 'home#show'
 end

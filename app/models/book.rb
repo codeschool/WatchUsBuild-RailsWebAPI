@@ -1,4 +1,6 @@
 class Book < ActiveRecord::Base
+  belongs_to :genre
+
   scope :finished, ->{ where('finished_at IS NOT NULL') }
   scope :available, -> { where(archived_at: nil) }
 
