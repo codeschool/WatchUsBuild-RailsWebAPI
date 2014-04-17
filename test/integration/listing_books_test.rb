@@ -19,7 +19,7 @@ class ListingBooksTest < ActionDispatch::IntegrationTest
   test 'lists top rated books' do
     get '/books?rating=5'
 
-    books = JSON.parse(response.body, symbolize_names: true)
+    books = json(response.body)
     assert_equal 2, books.size
 
     titles = books.map { |b| b[:title] }
