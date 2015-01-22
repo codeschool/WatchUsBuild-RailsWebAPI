@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417193603) do
+ActiveRecord::Schema.define(version: 20150122192404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: true do |t|
+  create_table "books", force: :cascade do |t|
     t.string   "title"
     t.integer  "rating"
     t.datetime "created_at"
@@ -29,10 +29,13 @@ ActiveRecord::Schema.define(version: 20140417193603) do
     t.integer  "genre_id"
   end
 
-  create_table "genres", force: true do |t|
+  add_index "books", ["genre_id"], name: "index_books_on_genre_id", using: :btree
+
+  create_table "genres", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_foreign_key "books", "genres"
 end
