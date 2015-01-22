@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '4.2.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -46,3 +48,7 @@ end
 gem 'spring', group: :development
 gem 'active_model_serializers'
 
+group :development, :test do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+end
