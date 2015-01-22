@@ -17,7 +17,7 @@ class CreatingBooksTest < ActionDispatch::IntegrationTest
     assert_equal book_attributes[:author], book[:author]
     assert_equal book_attributes[:review], book[:review]
     assert_equal book_attributes[:rating], book[:rating]
-    assert_equal book_attributes[:amazon_id], book[:amazon_id]
+    assert_equal book_attributes[:amazon_id], book[:amazon_id].to_i
     assert_equal book_attributes[:genre_id], book[:genre_id]
   end
 

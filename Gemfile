@@ -46,9 +46,11 @@ end
 # Use debugger
 #gem 'debugger', group: [:development, :test]
 gem 'spring', group: :development
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.8.0'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
 end
+
+gem 'thin'
