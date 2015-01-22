@@ -56,3 +56,5 @@ end
 gem 'thin'
 
 gem 'rails_12factor', group: :production
+
+gem 'sucker_punch', '~> 1.0'
